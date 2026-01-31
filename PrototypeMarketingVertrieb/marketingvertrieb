@@ -116,6 +116,7 @@ RUN;
 TITLE;
 
 *KREISDIAGRAMM - Erlös nach Region;
+TITLE "Erlöse nach Region";
 PROC TEMPLATE;
 	DEFINE STATGRAPH SASStudio.Pie;
 		BEGINGRAPH;
