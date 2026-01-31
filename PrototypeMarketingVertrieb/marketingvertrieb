@@ -1,0 +1,147 @@
+%LET sourcePath = /home/u64420186/PrototypeSource;
+
+/* Import */
+PROC IMPORT DATAFILE = "&sourcePath/customers.csv"
+	OUT = WORK.customers
+	DBMS = CSV
+	REPLACE;
+	GETNAMES = YES;
+RUN;
+
+PROC IMPORT DATAFILE = "&sourcePath/orders.csv"
+	OUT = WORK.orders
+	DBMS = CSV
+	REPLACE;
+	GETNAMES = YES;
+RUN;
+
+PROC IMPORT DATAFILE = "&sourcePath/products.csv"
+	OUT = WORK.products
+	DBMS = CSV
+	REPLACE;
+	GETNAMES = YES;
+RUN;
+
+/* Aufbereitung */
+* Spalten für Merge umbenennen;
+PROC DATASETS LIBRARY = WORK;
+	MODIFY customers;
+		RENAME id = customerId;
+QUIT;
+
+PROC DATASETS LIBRARY = WORK;
+	MODIFY products;
+		RENAME id = productId;
+QUIT;
+
+*Sortieren;
+PROC SORT DATA = WORK.customers OUT = WORK.customers_sorted;
+	BY customerId;
+RUN;
+
+PROC SORT DATA = WORK.orders OUT = WORK.orders_sorted;
+	BY customerId;
+RUN;
+
+PROC SORT DATA = WORK.products OUT = WORK.products_sorted;
+	BY productId;
+RUN;
+
+*Zusammenführen;
+DATA WORK.ordersMerged;
+	MERGE 	WORK.orders_sorted
+			WORK.customers_sorted;
+	BY customerId ;
+RUN;
+
+* Ersten Merge sortieren für nächsten Merge;
+PROC SORT DATA = WORK.ordersMerged OUT = WORK.ordersMerged_sortedProductId;
+	BY productId;
+RUN;
+
+DATA WORK.ordersMerged_final;
+	MERGE 	WORK.ordersMerged_sortedProductId
+			WORK.products_sorted;
+	BY productId;
+RUN;
+
+*Quartale;
+DATA WORK.orders_quarters;
+  SET WORK.ordersMerged_final;
+
+  date_dt = date;
+  FORMAT date_dt datetime19.;
+
+  date_d  = datepart(date_dt);
+  FORMAT date_d date9.;
+
+  year    = year(date_d);
+  quarter = qtr(date_d);
+  week = week(date_d, 'u');
+  year_quarter = cats(quarter, '/', year);
+
+  DROP date_d;
+RUN;
+
+PROC SORT DATA = WORK.orders_quarters OUT = WORK.orders_quarters_sorted;
+	BY date;
+RUN;
+
+/* Analysen */
+ODS GRAPHICS / RESET WIDTH = 6.4in HEIGHT = 4.8in IMAGEMAP;
+
+*BALKENDIAGRAMM - Welche ProductLine verkauft sich am besten;
+PROC SGPLOT DATA = WORK.orders_quarters_sorted;
+	TITLE 'Verkaufsmenge von Produkten';
+
+	VBAR productLine / RESPONSE = quantaty GROUP = year_quarter GROUPDISPLAY = cluster;
+	YAXIS GRID;
+	
+	XAXIS LABEL = 'Produkt';
+	YAXIS LABEL = 'verkaufte Menge';
+	
+	KEYLEGEND / POSITION = top TITLE = 'Quartale';
+RUN;
+
+*BALKENDIAGRAMM - Welcher Kanal erzielt den größten Erlös;
+PROC SGPLOT DATA = WORK.orders_quarters_sorted;
+	TITLE 'Erlöse nach Vertriebskanal';
+
+	VBAR orderChannel / RESPONSE = totalPrice fillattrs=(color=big) DATALABEL;
+	YAXIS GRID;
+	
+	XAXIS LABEL = 'Vertriebskanal';
+	YAXIS LABEL = 'Erlös';
+RUN;
+TITLE;
+
+*KREISDIAGRAMM - Erlös nach Region;
+PROC TEMPLATE;
+	DEFINE STATGRAPH SASStudio.Pie;
+		BEGINGRAPH;
+		LAYOUT REGION;
+		PIECHART CATEGORY = region RESPONSE = totalPrice /;
+		ENDLAYOUT;
+		ENDGRAPH;
+	END;
+RUN;
+
+PROC SGRENDER TEMPLATE = SASStudio.Pie DATA = WORK.orders_quarters_sorted;
+RUN;
+
+*Elöse pro Kalenderwoche;
+ODS GRAPHICS / RESET WIDTH = 12in HEIGHT = 4.8in IMAGEMAP;
+
+PROC SGPLOT DATA = WORK.orders_quarters_sorted;
+	TITLE 'Erlöse nach Kalenderwoche';
+
+	VLINE week / RESPONSE = totalPrice LEGENDLABEL = 'Elös';
+	
+	YAXIS GRID;
+	
+	XAXIS LABEL = 'Kalenderwoche';
+	YAXIS LABEL = 'Erlös';
+RUN;
+
+ODS GRAPHICS / RESET;
+

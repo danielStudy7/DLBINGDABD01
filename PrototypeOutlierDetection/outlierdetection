@@ -1,0 +1,122 @@
+%LET sourcePath = /home/u64420186/PrototypeSource;
+
+/* Import */
+PROC IMPORT DATAFILE = "&sourcePath/sensorData.csv"
+	OUT = WORK.sensorData
+	DBMS = CSV
+	REPLACE;
+	GETNAMES = YES;
+RUN;
+
+PROC IMPORT DATAFILE = "&sourcePath/historycSensorData.csv"
+	OUT = WORK.historycSensorData
+	DBMS = CSV
+	REPLACE;
+	GETNAMES = YES;
+RUN;
+
+/* Daten aufbereiten */
+*Fehlerhafte Daten aus 2025 löschen;
+PROC SQL;
+	delete * from WORK.historycSensorData where date > '31DEC2024:23:59:59'dt;
+QUIT;
+
+*Tabellen sortieren;
+PROC SORT DATA = WORK.sensordata OUT = WORK.sensordata_sorted;
+	BY machineId date;
+RUN;
+
+PROC SORT DATA = WORK.historycSensorData OUT = WORK.historycSensorData_sorted;
+	BY machineId date;
+RUN;
+
+*Daten zusammenführen;
+PROC SQL;
+	insert into WORK.historycSensorData_sorted (date, machineId, temprature, vibration, pressure)
+	select date, machineId, temprature, vibration, pressure from WORK.sensordata_sorted;
+QUIT;
+
+*Quartale;
+DATA WORK.sensor_quarters;
+	SET WORK.historycSensorData_sorted;
+
+	date_dt = date;
+	FORMAT date_dt datetime19.;
+
+	date_d  = datepart(date_dt);
+	FORMAT date_d date9.;
+
+	year = year(date_d);
+	quarter = qtr(date_d);
+	week = week(date_d, 'u');
+	year_quarter = cats(quarter, '/', year);
+
+	DROP date_d;
+RUN;
+
+DATA WORK.sensor_quarters_2025;
+	SET WORK.sensor_quarters;
+	
+	WHERE year = 2025;
+RUN;
+
+PROC SORT DATA = WORK.sensor_quarters_2025 OUT = WORK.sensor_quarters_2025_sorted;
+	BY date;
+RUN;
+
+/* Analyse */
+ODS GRAPHICS / RESET WIDTH = 12.4in HEIGHT = 4.8in IMAGEMAP;
+
+TITLE 'Temperatur Ausreißer Historisch nach Quartal';
+PROC SGPLOT DATA = WORK.sensor_quarters;
+	VBOX temprature / CATEGORY = year_quarter;
+	YAXIS GRID;
+	
+	YAXIS LABEL = "Temperatur";
+	XAXIS LABEL = "Quartal";
+RUN;
+
+TITLE 'Vibrations Ausreißer Historisch nach Quartal';
+PROC SGPLOT DATA = WORK.sensor_quarters;
+	VBOX vibration / CATEGORY = year_quarter;
+	YAXIS GRID;
+	
+	YAXIS LABEL = "Vibration/ms";
+	XAXIS LABEL = "Quartal";
+RUN;
+
+TITLE 'Druck Ausreißer Historisch nach Quartal';
+PROC SGPLOT DATA = WORK.sensor_quarters;
+	VBOX pressure / CATEGORY = year_quarter;
+	YAXIS GRID;
+	
+	YAXIS LABEL = "Druck in Bar";
+	XAXIS LABEL = "Quartal";
+RUN;
+
+TITLE 'Temperatur Ausreißer 2025 nach Wochen';
+PROC SGPLOT DATA = WORK.sensor_quarters_2025_sorted;
+	VBOX temprature / CATEGORY = week;
+	YAXIS GRID;
+	
+	YAXIS LABEL = "Temperatur";
+	XAXIS LABEL = "Quartal";
+RUN;
+
+TITLE 'Vibrations Ausreißer 2025 nach Wochen';
+PROC SGPLOT DATA = WORK.sensor_quarters_2025_sorted;
+	VBOX vibration / CATEGORY = week;
+	YAXIS GRID;
+	
+	YAXIS LABEL = "Temperatur";
+	XAXIS LABEL = "Quartal";
+RUN;
+
+TITLE 'Druck Ausreißer 2025 nach Wochen';
+PROC SGPLOT DATA = WORK.sensor_quarters_2025_sorted;
+	VBOX pressure / CATEGORY = week;
+	YAXIS GRID;
+	
+	YAXIS LABEL = "Temperatur";
+	XAXIS LABEL = "Quartal";
+RUN;

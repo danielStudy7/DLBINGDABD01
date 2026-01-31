@@ -1,0 +1,201 @@
+id,name,region,hasServiceContract
+CUS000001,RENSt Gbr,Baltikum,1
+CUS000002,RENSt Gbr,Balkan,0
+CUS000003,Eiche GmbH & Co. KG,BENELUX,0
+CUS000004,Banane UG,Grande Region,0
+CUS000005,Rosinen UG,Skandinavien,0
+CUS000006,Rosinen eG,Grande Region,1
+CUS000007,Schmidt KG,Skandinavien,1
+CUS000008,Apfel Gbr,BENELUX,0
+CUS000009,Baufirma GmbH,Balkan,1
+CUS000010,Plastik OHG,DACH,1
+CUS000011,Birkenbaum KG,BENELUX,1
+CUS000012,Reste KG,Grande Region,0
+CUS000013,Bau AG,DACH,1
+CUS000014,Plastik KG,Balkan,1
+CUS000015,Birne eG,Grande Region,0
+CUS000016,Rosinen GmbH & Co. KG,Balkan,1
+CUS000017,Metall OHG,Skandinavien,1
+CUS000018,Blumen GmbH,BENELUX,1
+CUS000019,Baufirma AG,Balkan,1
+CUS000020,Apfel OHG,Grande Region,1
+CUS000021,Blumen GmbH & Co. KG,BENELUX,0
+CUS000022,Baufirma GmbH & Co. KG,Grande Region,1
+CUS000023,Gebr. Schmidt UG,Grande Region,0
+CUS000024,Apfel KG,DACH,0
+CUS000025,Reste eG,Baltikum,1
+CUS000026,Blumen Gbr,Balkan,0
+CUS000027,Apfel UG,Balkan,0
+CUS000028,Blau Gbr,DACH,0
+CUS000029,Metall OHG,Skandinavien,0
+CUS000030,Birne GmbH,Balkan,0
+CUS000031,Baufirma Gbr,DACH,1
+CUS000032,Bau eG,Balkan,0
+CUS000033,Müllersheim OHG,Balkan,1
+CUS000034,Apfel AG,Grande Region,1
+CUS000035,Plastik KG,DACH,0
+CUS000036,Birkenbaum GmbH,Skandinavien,1
+CUS000037,Plastik GmbH & Co. KG,Balkan,1
+CUS000038,Baufirma eG,Skandinavien,0
+CUS000039,Gebr. Schmidt eG,Baltikum,1
+CUS000040,Bau GmbH,DACH,1
+CUS000041,Metall AG,DACH,0
+CUS000042,Eiche GmbH,DACH,1
+CUS000043,RENSt OHG,Grande Region,1
+CUS000044,RENSt GmbH,DACH,1
+CUS000045,Blau GmbH,Grande Region,1
+CUS000046,Blau GmbH,Baltikum,0
+CUS000047,Banane GmbH & Co. KG,BENELUX,1
+CUS000048,RENSt OHG,Grande Region,1
+CUS000049,Blau UG,Balkan,1
+CUS000050,Banane KG,DACH,0
+CUS000051,Birne Gbr,BENELUX,1
+CUS000052,Baufirma UG,Grande Region,1
+CUS000053,Blumen GmbH,Skandinavien,1
+CUS000054,Birkenbaum AG,Skandinavien,1
+CUS000055,Bau eG,Balkan,1
+CUS000056,Plastik AG,BENELUX,0
+CUS000057,Baufirma OHG,Baltikum,1
+CUS000058,Blumen KG,Grande Region,0
+CUS000059,Blau GmbH,Skandinavien,0
+CUS000060,Blumen OHG,Skandinavien,0
+CUS000061,RENSt Gbr,Grande Region,1
+CUS000062,Blumen KG,Skandinavien,1
+CUS000063,Reste KG,Baltikum,0
+CUS000064,Bau OHG,Skandinavien,0
+CUS000065,Birne UG,Grande Region,1
+CUS000066,Metall eG,DACH,1
+CUS000067,Birne AG,Skandinavien,1
+CUS000068,Metall UG,Grande Region,1
+CUS000069,Schmidt KG,DACH,1
+CUS000070,Blau AG,Skandinavien,1
+CUS000071,Bau KG,Skandinavien,0
+CUS000072,Birne GmbH & Co. KG,Grande Region,0
+CUS000073,Bau eG,Balkan,0
+CUS000074,Blumen KG,Balkan,0
+CUS000075,Gebr. Schmidt KG,BENELUX,1
+CUS000076,Schmidt Gbr,Balkan,1
+CUS000077,Plastik AG,Baltikum,1
+CUS000078,Schmidt Gbr,BENELUX,1
+CUS000079,Plastik AG,Balkan,1
+CUS000080,Gebr. Schmidt eG,DACH,1
+CUS000081,Birne eG,Grande Region,1
+CUS000082,Bau GmbH & Co. KG,Balkan,1
+CUS000083,Blau Gbr,DACH,0
+CUS000084,Baufirma Gbr,BENELUX,1
+CUS000085,Müllersheim Gbr,Grande Region,1
+CUS000086,Plastik eG,Balkan,1
+CUS000087,RENSt eG,BENELUX,1
+CUS000088,Eiche OHG,Balkan,0
+CUS000089,Plastik Gbr,BENELUX,1
+CUS000090,Schmidt GmbH & Co. KG,Balkan,0
+CUS000091,Baufirma UG,DACH,0
+CUS000092,Birne UG,Baltikum,1
+CUS000093,Metall KG,DACH,0
+CUS000094,Gebr. Schmidt GmbH,Grande Region,1
+CUS000095,Plastik Gbr,Balkan,0
+CUS000096,Baufirma GmbH,Baltikum,1
+CUS000097,Apfel GmbH,Baltikum,1
+CUS000098,Plastik KG,Grande Region,0
+CUS000099,Bau GmbH,Grande Region,0
+CUS000100,RENSt GmbH & Co. KG,Baltikum,1
+CUS000101,Müllersheim eG,Grande Region,0
+CUS000102,Schmidt GmbH,Grande Region,0
+CUS000103,Metall eG,Balkan,1
+CUS000104,Rosinen eG,DACH,0
+CUS000105,RENSt UG,Skandinavien,1
+CUS000106,Rosinen eG,BENELUX,1
+CUS000107,Rosinen GmbH,Baltikum,0
+CUS000108,Birkenbaum AG,BENELUX,0
+CUS000109,Bau GmbH & Co. KG,Baltikum,0
+CUS000110,Banane Gbr,Baltikum,1
+CUS000111,Rosinen GmbH & Co. KG,DACH,0
+CUS000112,Apfel GmbH & Co. KG,Baltikum,0
+CUS000113,Blumen Gbr,Baltikum,0
+CUS000114,Rosinen GmbH,DACH,0
+CUS000115,Eiche KG,Grande Region,1
+CUS000116,Eiche AG,Skandinavien,0
+CUS000117,Müllersheim KG,BENELUX,0
+CUS000118,Birkenbaum KG,Baltikum,0
+CUS000119,Baufirma GmbH,DACH,0
+CUS000120,Rosinen OHG,Baltikum,0
+CUS000121,Reste GmbH,DACH,0
+CUS000122,Schmidt UG,BENELUX,0
+CUS000123,Bau OHG,Balkan,1
+CUS000124,Eiche eG,Grande Region,0
+CUS000125,Eiche AG,Balkan,1
+CUS000126,Baufirma OHG,DACH,0
+CUS000127,Gebr. Schmidt GmbH,Baltikum,1
+CUS000128,Plastik GmbH,Grande Region,0
+CUS000129,Birkenbaum KG,BENELUX,1
+CUS000130,Schmidt GmbH,Skandinavien,1
+CUS000131,RENSt eG,Grande Region,0
+CUS000132,Plastik UG,Baltikum,0
+CUS000133,Plastik GmbH,Balkan,1
+CUS000134,Eiche Gbr,DACH,1
+CUS000135,RENSt Gbr,Balkan,0
+CUS000136,Baufirma KG,Grande Region,1
+CUS000137,Banane OHG,Skandinavien,0
+CUS000138,Baufirma OHG,Baltikum,0
+CUS000139,Müllersheim Gbr,DACH,0
+CUS000140,Baufirma UG,Baltikum,0
+CUS000141,Blumen AG,Baltikum,0
+CUS000142,Apfel eG,Skandinavien,0
+CUS000143,Müllersheim GmbH & Co. KG,Grande Region,1
+CUS000144,Reste eG,Balkan,1
+CUS000145,Reste eG,Baltikum,0
+CUS000146,Rosinen UG,Baltikum,1
+CUS000147,Birne Gbr,Baltikum,0
+CUS000148,Eiche eG,DACH,0
+CUS000149,Plastik UG,Baltikum,1
+CUS000150,Gebr. Schmidt AG,Baltikum,1
+CUS000151,Metall OHG,Grande Region,1
+CUS000152,Müllersheim Gbr,Baltikum,0
+CUS000153,Müllersheim GmbH & Co. KG,Skandinavien,0
+CUS000154,Reste GmbH,Skandinavien,1
+CUS000155,Blau eG,Baltikum,0
+CUS000156,Eiche AG,Skandinavien,0
+CUS000157,Baufirma AG,Grande Region,1
+CUS000158,Plastik AG,DACH,0
+CUS000159,Müllersheim OHG,Skandinavien,0
+CUS000160,RENSt UG,Skandinavien,0
+CUS000161,Baufirma KG,Balkan,0
+CUS000162,Müllersheim eG,Grande Region,0
+CUS000163,Baufirma GmbH,Skandinavien,1
+CUS000164,Birkenbaum eG,DACH,0
+CUS000165,Blumen Gbr,Balkan,1
+CUS000166,Eiche GmbH & Co. KG,Baltikum,0
+CUS000167,Bau UG,Grande Region,1
+CUS000168,Bau AG,Skandinavien,0
+CUS000169,Blau GmbH & Co. KG,Baltikum,0
+CUS000170,Reste eG,Grande Region,0
+CUS000171,Rosinen OHG,Balkan,0
+CUS000172,Baufirma AG,Skandinavien,1
+CUS000173,Blumen UG,DACH,0
+CUS000174,Metall Gbr,Grande Region,1
+CUS000175,Birne GmbH & Co. KG,DACH,0
+CUS000176,Schmidt GmbH,Baltikum,1
+CUS000177,Gebr. Schmidt AG,Baltikum,1
+CUS000178,Blumen eG,Balkan,0
+CUS000179,Birne eG,Balkan,1
+CUS000180,Rosinen GmbH & Co. KG,BENELUX,1
+CUS000181,Birkenbaum OHG,BENELUX,1
+CUS000182,Apfel GmbH & Co. KG,Balkan,0
+CUS000183,Reste OHG,Skandinavien,1
+CUS000184,Rosinen KG,Baltikum,1
+CUS000185,Birne OHG,DACH,1
+CUS000186,Baufirma KG,Balkan,1
+CUS000187,Müllersheim GmbH,Skandinavien,1
+CUS000188,Banane Gbr,DACH,1
+CUS000189,Bau KG,BENELUX,1
+CUS000190,Apfel AG,DACH,0
+CUS000191,RENSt UG,Balkan,1
+CUS000192,RENSt eG,Baltikum,0
+CUS000193,Gebr. Schmidt AG,Balkan,0
+CUS000194,Metall eG,Grande Region,1
+CUS000195,Birkenbaum Gbr,Skandinavien,1
+CUS000196,Birne GmbH & Co. KG,Skandinavien,1
+CUS000197,Plastik OHG,Skandinavien,1
+CUS000198,Reste UG,Grande Region,0
+CUS000199,Plastik AG,Grande Region,1
+CUS000200,Blumen UG,Baltikum,0
