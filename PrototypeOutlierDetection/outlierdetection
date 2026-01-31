@@ -67,7 +67,7 @@ RUN;
 /* Analyse */
 ODS GRAPHICS / RESET WIDTH = 12.4in HEIGHT = 4.8in IMAGEMAP;
 
-TITLE 'Temperatur Ausreißer Historisch nach Quartal';
+TITLE "Temperatur Ausreißer Historisch nach Quartal";
 PROC SGPLOT DATA = WORK.sensor_quarters;
 	VBOX temprature / CATEGORY = year_quarter;
 	YAXIS GRID;
@@ -76,7 +76,7 @@ PROC SGPLOT DATA = WORK.sensor_quarters;
 	XAXIS LABEL = "Quartal";
 RUN;
 
-TITLE 'Vibrations Ausreißer Historisch nach Quartal';
+TITLE "Vibrations Ausreißer Historisch nach Quartal";
 PROC SGPLOT DATA = WORK.sensor_quarters;
 	VBOX vibration / CATEGORY = year_quarter;
 	YAXIS GRID;
@@ -85,7 +85,7 @@ PROC SGPLOT DATA = WORK.sensor_quarters;
 	XAXIS LABEL = "Quartal";
 RUN;
 
-TITLE 'Druck Ausreißer Historisch nach Quartal';
+TITLE "Druck Ausreißer Historisch nach Quartal";
 PROC SGPLOT DATA = WORK.sensor_quarters;
 	VBOX pressure / CATEGORY = year_quarter;
 	YAXIS GRID;
@@ -94,7 +94,7 @@ PROC SGPLOT DATA = WORK.sensor_quarters;
 	XAXIS LABEL = "Quartal";
 RUN;
 
-TITLE 'Temperatur Ausreißer 2025 nach Wochen';
+TITLE "Temperatur Ausreißer 2025 nach Wochen";
 PROC SGPLOT DATA = WORK.sensor_quarters_2025_sorted;
 	VBOX temprature / CATEGORY = week;
 	YAXIS GRID;
@@ -103,7 +103,7 @@ PROC SGPLOT DATA = WORK.sensor_quarters_2025_sorted;
 	XAXIS LABEL = "Quartal";
 RUN;
 
-TITLE 'Vibrations Ausreißer 2025 nach Wochen';
+TITLE "Vibrations Ausreißer 2025 nach Wochen";
 PROC SGPLOT DATA = WORK.sensor_quarters_2025_sorted;
 	VBOX vibration / CATEGORY = week;
 	YAXIS GRID;
@@ -112,7 +112,7 @@ PROC SGPLOT DATA = WORK.sensor_quarters_2025_sorted;
 	XAXIS LABEL = "Quartal";
 RUN;
 
-TITLE 'Druck Ausreißer 2025 nach Wochen';
+TITLE "Druck Ausreißer 2025 nach Wochen";
 PROC SGPLOT DATA = WORK.sensor_quarters_2025_sorted;
 	VBOX pressure / CATEGORY = week;
 	YAXIS GRID;
