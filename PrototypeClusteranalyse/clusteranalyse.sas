@@ -4,7 +4,7 @@
 DATA WORK.testData;
 	LENGTH id $10 productId $10 charge $12 date $10;
 
-	INFILE '&sourcePath/testData.csv' DELIMITER = ',' MISSOVER DSD FIRSTOBS = 2; 
+	INFILE "&sourcePath/testData.csv" DELIMITER = ',' MISSOVER DSD FIRSTOBS = 2; 
 	INFORMAT 	shouldRatePerMinute comma20.18
 				currentRatePerMinute comma20.18;
 	FORMAT 	currentRatePerMinute comma20.2;
@@ -60,39 +60,18 @@ DATA WORK.testData_clustered;
   	IF a; 
 RUN;
 
-TITLE 'Clustergrößen';
+TITLE "Clustergrößen";
 PROC FREQ DATA = WORK.testData_clustered;
   	TABLES cluster / NOCUM;
 RUN;
 
-TITLE 'Clusterprofile';
-PROC MEANS DATA = WORK.testData_clustered N MEAN STD MIN P25 MEDIAN P75 MAX;
-  	CLASS cluster;
-  	VAR shouldRatePerMinute currentRatePerMinute;
+TITLE "Streuungsdiagramm Cluster";
+PROC SGPLOT DATA = WORK.testData_clustered;
+  SCATTER X = shouldRatePerMinute Y = diff / GROUP = cluster MARKERATTRS=(SIZE=8);
+  
+  XAXIS LABEL = "Soll Liter/Minute";
+  YAXIS LABEL = "Differenz";
 RUN;
-
-PROC PRINCOMP DATA = WORK.testData_clustered_std OUT = WORK.qctestData_pca N=2;
-  	VAR shouldRatePerMinute currentRatePerMinute;
-RUN;
-
-PROC SORT DATA = WORK.qctestData_pca; 
-	BY id; 
-RUN;
-
-DATA WORK.testData_pca_plot;
-  MERGE work.qctestData_pca(in=a) work.cluster(in=b);
-  BY id;
-  IF a;
-RUN;
-
-TITLE 'PCA-Raum Cluster';
-PROC SGPLOT DATA = WORK.testData_pca_plot;
-  SCATTER X = prin1 Y = prin2 / GROUP = cluster MARKERATTRS=(SIZE=8);
-  XAXIS LABEL = 'PCA1';
-  YAXIS LABEL = 'PCA2';
-RUN;
-
-TITLE;
 
 ODS GRAPHICS OFF;
 
