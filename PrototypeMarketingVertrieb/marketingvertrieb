@@ -92,26 +92,26 @@ ODS GRAPHICS / RESET WIDTH = 6.4in HEIGHT = 4.8in IMAGEMAP;
 
 *BALKENDIAGRAMM - Welche ProductLine verkauft sich am besten;
 PROC SGPLOT DATA = WORK.orders_quarters_sorted;
-	TITLE 'Verkaufsmenge von Produkten';
+	TITLE "Verkaufsmenge von Produkten";
 
 	VBAR productLine / RESPONSE = quantaty GROUP = year_quarter GROUPDISPLAY = cluster;
 	YAXIS GRID;
 	
-	XAXIS LABEL = 'Produkt';
-	YAXIS LABEL = 'verkaufte Menge';
+	XAXIS LABEL = "Produkt";
+	YAXIS LABEL = "verkaufte Menge";
 	
-	KEYLEGEND / POSITION = top TITLE = 'Quartale';
+	KEYLEGEND / POSITION = top TITLE = "Quartale";
 RUN;
 
 *BALKENDIAGRAMM - Welcher Kanal erzielt den größten Erlös;
 PROC SGPLOT DATA = WORK.orders_quarters_sorted;
-	TITLE 'Erlöse nach Vertriebskanal';
+	TITLE "Erlöse nach Vertriebskanal";
 
 	VBAR orderChannel / RESPONSE = totalPrice fillattrs=(color=big) DATALABEL;
 	YAXIS GRID;
 	
-	XAXIS LABEL = 'Vertriebskanal';
-	YAXIS LABEL = 'Erlös';
+	XAXIS LABEL = "Vertriebskanal";
+	YAXIS LABEL = "Erlös";
 RUN;
 TITLE;
 
@@ -133,14 +133,14 @@ RUN;
 ODS GRAPHICS / RESET WIDTH = 12in HEIGHT = 4.8in IMAGEMAP;
 
 PROC SGPLOT DATA = WORK.orders_quarters_sorted;
-	TITLE 'Erlöse nach Kalenderwoche';
+	TITLE "Erlöse nach Kalenderwoche";
 
 	VLINE week / RESPONSE = totalPrice LEGENDLABEL = 'Elös';
 	
 	YAXIS GRID;
 	
-	XAXIS LABEL = 'Kalenderwoche';
-	YAXIS LABEL = 'Erlös';
+	XAXIS LABEL = "Kalenderwoche";
+	YAXIS LABEL = "Erlös";
 RUN;
 
 ODS GRAPHICS / RESET;
